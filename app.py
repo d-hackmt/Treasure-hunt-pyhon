@@ -1,16 +1,16 @@
 import streamlit as st
 import pandas as pd
 
+from util import set_background
+
+set_background('bg.png')
+
+
 # Initialize the player's position and game state using session state variables
 if "player_position" not in st.session_state:
     st.session_state["player_position"] = [0, 0]
 if "game_over" not in st.session_state:
     st.session_state["game_over"] = False
-    
-from util import  set_background
-
-
-set_background('bg.png')
 
 # Define the map layout with clues and a treasure
 map_layout = [
@@ -69,15 +69,12 @@ def display_grid():
     x, y = st.session_state["player_position"]
     grid_display[x][y] = "🚶"
 
+    # Create a DataFrame and display it without using Styler.to_html()
     grid_df = pd.DataFrame(grid_display, columns=["Col 1", "Col 2", "Col 3"])
-    
-    # Set the table style for larger text
-    st.markdown(
-        grid_df.style.set_table_attributes('style="font-size: 30px; text-align: center; border: 2px solid black;"')
-            .hide_index()
-            .render(),
-        unsafe_allow_html=True
-    )
+
+    # Increase the font size by using markdown and format the grid with HTML
+    st.markdown("<style>table {font-size: 40px; text-align: center; border: 2px solid black;}</style>", unsafe_allow_html=True)
+    st.table(grid_df)
 
 # Main game function
 def start_game():
