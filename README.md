@@ -1,5 +1,8 @@
 # 🏴‍☠️ [Treasure Hunt Game](https://treasure.streamlit.app/)
 
+![image](https://github.com/user-attachments/assets/823c27e5-5b45-43ba-b033-f3163e8c5957)
+
+
 Welcome to the **Treasure Hunt Game**! This is an interactive web-based game built with **Streamlit** where players navigate a grid to find hidden treasures and clues. The game is simple and fun, designed for players of all ages.
 
 ## Table of Contents
